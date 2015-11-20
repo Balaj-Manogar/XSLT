@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+	<book isbn="1000">
+		<author>ABC</author>
+		<published>
+			<year>2000</year>
+			<month>May</month>
+			<day>10</day>
+		</published>
+	</book>
+	<book isbn="1001">
+		<author>Xyz</author>
+		<published>
+			<year>1999</year>
+			<month>Jan</month>
+			<day>20</day>
+		</published>
+	</book>
+</books>
