@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:b="http://www.performgroup.com/ns/editorial/ArticleList" exclude-result-prefixes="b">
-	<xsl:output encoding="ISO-8859-1" indent="yes" method="xml" />
-
-	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"
+<xsl:stylesheet version="2.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:b="http://www.performgroup.com/ns/editorial/ArticleList"
+	exclude-result-prefixes="b">
+	<xsl:output encoding="ISO-8859-1" indent="yes" method="xml"
 		cdata-section-elements="body headline teaser seoPageTitle" />
 
 	<xsl:variable name="headline" select="'headline'" />
@@ -23,23 +22,23 @@
 		<xsl:variable name="publishedTime" select="@publishedTime" />
 		<xsl:variable name="byLine" select="@byLine" />
 
-
+		<!-- creating new node for article -->
 		<xsl:element name="article">
 			<!-- adding attribute -->
 			<xsl:attribute name="id">
 				<xsl:value-of select="$id" />
 			</xsl:attribute>
 
-			<xsl:template match="b:headline">
-				<xsl:element name="headline">
-					<xsl:value-of select="./b:headline" />
-				</xsl:element>
-			</xsl:template>
-			<xsl:template match="b:teaser">
-				<xsl:element name="teaser">
-					<xsl:value-of select="./teaser" />
-				</xsl:element>
-			</xsl:template>
+			<!-- creating new node for headline -->
+			<xsl:element name="headline">
+				<xsl:value-of select="./b:headline" />
+			</xsl:element>
+
+			<!-- creating new node for teaser -->
+			<xsl:element name="teaser">
+				<xsl:value-of select="./b:teaser" />
+			</xsl:element>
+
 			<!-- creating new node for published time -->
 			<xsl:element name="publishedTime">
 				<xsl:value-of select="$publishedTime" />
@@ -55,17 +54,17 @@
 				<xsl:value-of select="$byLine" />
 			</xsl:element>
 
-			<xsl:template match="b:body">
-				<xsl:element name="body">
-					<xsl:value-of select="./b:body" />
-				</xsl:element>
-			</xsl:template>
+			<!-- creating new node for body -->
+			<xsl:element name="body">
+				<xsl:value-of select="./b:body" />
+			</xsl:element>
 
-			<xsl:template match="b:seoPageTitle">
-				<xsl:element name="seoPageTitle">
-					<xsl:value-of select="./b:seoPageTitle" />
-				</xsl:element>
-			</xsl:template>
+
+			<!-- creating new node for seoPageTitle -->
+			<xsl:element name="seoPageTitle">
+				<xsl:value-of select="./b:seoPageTitle" />
+			</xsl:element>
+
 		</xsl:element>
 
 	</xsl:template>
