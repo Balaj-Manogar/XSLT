@@ -14,8 +14,8 @@
 	</xsl:template>
 
 	<!-- Matches the article and applying templates -->
-	<xsl:template match="/b:articles">
-		<xsl:result-document method="xml" href="{@id}-output.xml">
+	<xsl:template match="/b:articles/b:article">
+		<xsl:result-document method="xml" href="generated/BM-{@id}-ot.xml">
 			<!-- article variable declarations -->
 			<xsl:variable name="id" select="@id" />
 			<xsl:variable name="lastUpdateTime" select="@lastUpdateTime" />
